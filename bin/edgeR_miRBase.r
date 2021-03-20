@@ -71,6 +71,7 @@ for (i in 1:2) {
     data<-data[!row_sub,]
 
     # Normalization
+    write.table(data,file=paste(header,"_counts.txt",sep=""),sep='\t',quote=FALSE)
     dataDGE<-DGEList(counts=data,genes=rownames(data))
     o <- order(rowSums(dataDGE$counts), decreasing=TRUE)
     dataDGE <- dataDGE[o,]
